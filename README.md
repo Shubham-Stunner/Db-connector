@@ -1,5 +1,3 @@
-Certainly! Here is the content for your `README.md` file:
-
 ```markdown
 # Flask MySQL Connection Checker
 
