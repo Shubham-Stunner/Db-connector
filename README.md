@@ -1,4 +1,3 @@
-```markdown
 # Flask MySQL Connection Checker
 
 
@@ -21,7 +20,7 @@
 ```sh
 git clone <repository-url>
 cd flask_mysql_app
-```
+
 
 ### Step 2: Create and Activate Virtual Environment
 ```sh
