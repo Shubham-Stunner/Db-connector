@@ -51,22 +51,18 @@ class Config:
     MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'your_password')
     MYSQL_DB = os.getenv('MYSQL_DB', 'testdb')
     
-    ORACLE_HOST = 'localhost'
-    ORACLE_PORT = '1521'
-    ORACLE_USER = 'oracle_user'
-    ORACLE_PASSWORD = 'oracle_password'
-    ORACLE_DB = 'XE'
+    dsn_tns = cx_Oracle.makedsn(app.config['ORACLE_HOST'], app.config['ORACLE_PORT'], service_name=app.config['ORACLE_DB'])
+    return cx_Oracle.connect(user=app.config['ORACLE_USER'], password=app.config['ORACLE_PASSWORD'], dsn=dsn_tns)
 
-    TERADATA_HOST = 'localhost'
-    TERADATA_USER = 'teradata_user'
-    TERADATA_PASSWORD = 'teradata_password'
-    TERADATA_DB = 'dbc'
+    host=app.config['TERADATA_HOST'],
+    user=app.config['TERADATA_USER'],
+    password=app.config['TERADATA_PASSWORD']
 
-    HIVE_HOST = 'localhost'
-    HIVE_PORT = 10000
-    HIVE_USER = 'hive_user'
-    HIVE_PASSWORD = 'hive_password'
-    HIVE_DB = 'default'
+    host=app.config['HIVE_HOST'],
+    port=app.config['HIVE_PORT'],
+    username=app.config['HIVE_USER'],
+    password=app.config['HIVE_PASSWORD'],
+    database=app.config['HIVE_DB']
 ```
 
 ### Step 5: Run the Application
