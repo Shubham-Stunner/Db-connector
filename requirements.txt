@@ -1,3 +1,6 @@
 Flask==2.0.2
 Werkzeug==2.0.2
 mysql-connector-python==8.0.27
+cx_Oracle==8.3.0
+teradatasql==17.20.0.0
+pyhive==0.6.5
