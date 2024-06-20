@@ -50,6 +50,23 @@ class Config:
     MYSQL_USER = os.getenv('MYSQL_USER', 'your_user')
     MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'your_password')
     MYSQL_DB = os.getenv('MYSQL_DB', 'testdb')
+    
+    ORACLE_HOST = 'localhost'
+    ORACLE_PORT = '1521'
+    ORACLE_USER = 'oracle_user'
+    ORACLE_PASSWORD = 'oracle_password'
+    ORACLE_DB = 'XE'
+
+    TERADATA_HOST = 'localhost'
+    TERADATA_USER = 'teradata_user'
+    TERADATA_PASSWORD = 'teradata_password'
+    TERADATA_DB = 'dbc'
+
+    HIVE_HOST = 'localhost'
+    HIVE_PORT = 10000
+    HIVE_USER = 'hive_user'
+    HIVE_PASSWORD = 'hive_password'
+    HIVE_DB = 'default'
 ```
 
 ### Step 5: Run the Application
@@ -66,7 +83,7 @@ curl http://127.0.0.1:5000/check_db
 ## API Endpoint
 
 ### Check Database Connection
-- **URL**: `/check_db`
+- **URL**: `/check_db` `/check_oracle` `/check_teradata` `/check_hive`
 - **Method**: `GET`
 - **Response**:
   - Success: `{"status": "Database online"}`
