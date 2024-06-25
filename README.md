@@ -50,6 +50,19 @@ class Config:
     MYSQL_USER = os.getenv('MYSQL_USER', 'your_user')
     MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'your_password')
     MYSQL_DB = os.getenv('MYSQL_DB', 'testdb')
+    
+    dsn_tns = cx_Oracle.makedsn(app.config['ORACLE_HOST'], app.config['ORACLE_PORT'], service_name=app.config['ORACLE_DB'])
+    return cx_Oracle.connect(user=app.config['ORACLE_USER'], password=app.config['ORACLE_PASSWORD'], dsn=dsn_tns)
+
+    host=app.config['TERADATA_HOST'],
+    user=app.config['TERADATA_USER'],
+    password=app.config['TERADATA_PASSWORD']
+
+    host=app.config['HIVE_HOST'],
+    port=app.config['HIVE_PORT'],
+    username=app.config['HIVE_USER'],
+    password=app.config['HIVE_PASSWORD'],
+    database=app.config['HIVE_DB']
 ```
 
 ### Step 5: Run the Application
@@ -66,7 +79,7 @@ curl http://127.0.0.1:5000/check_db
 ## API Endpoint
 
 ### Check Database Connection
-- **URL**: `/check_db`
+- **URL**: `/check_db` `/check_oracle` `/check_teradata` `/check_hive`
 - **Method**: `GET`
 - **Response**:
   - Success: `{"status": "Database online"}`
